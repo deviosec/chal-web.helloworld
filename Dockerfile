@@ -1,6 +1,8 @@
+# 
 FROM alpine:3.9
 
-LABEL maintainer="eyJhb <eyjhbb@gmail.com>"
+
+LABEL maintainer="eyJhb"
 
 ENV VERSION 1.0
 
