@@ -5,9 +5,10 @@
 # could be done much better, using https://github.com/just-containers/s6-overlay
 # but used example from here instead - https://docs.docker.com/config/containers/multi-service_container/
 
-# insert our flag
+# plant our flag and destroy all evidence!
 sed -i "s/{{FLAG}}/${FLAG}/g" /var/www/html/index.html
 unset FLAG
+exec sh
 
 #start nginx
 /usr/sbin/nginx
