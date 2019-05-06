@@ -1,11 +1,7 @@
-# 
 FROM alpine:3.9
 
-
 LABEL maintainer="eyJhb"
-
 ENV VERSION 1.0
-
 ENV FLAG CTF{1337HelloToYou!}
 
 EXPOSE 80
