@@ -7,6 +7,7 @@
 
 # insert our flag
 sed -i "s/{{FLAG}}/${FLAG}/g" /var/www/html/index.html
+unset FLAG
 
 #start nginx
 /usr/sbin/nginx
