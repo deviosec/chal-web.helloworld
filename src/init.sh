@@ -8,7 +8,10 @@
 # plant our flag and destroy all evidence!
 sed -i "s/{{FLAG}}/${FLAG}/g" /var/www/html/index.html
 unset FLAG
-exec sh
+if [ ! -z $FLAG ]; then
+    unset FLAG
+    exec sh /init.sh
+fi
 
 #start nginx
 /usr/sbin/nginx

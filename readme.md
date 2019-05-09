@@ -60,14 +60,16 @@ This can be done using the following.
 
 ```
 echo $FLAG > /flag.txt
-unset FLAG
-exec sh
+if [ ! -z $FLAG ]; then
+    unset FLAG
+    exec sh /init.sh
+fi 
 ```
 
 Make sure that this is at the beginning of the file, right after `#!/bin/sh`, as any process creating in the `init.sh` script, will have the FLAG environment set.
-But what happens it that we put the flag where we want it, unset the FLAG environment variables and spawn a new shell which replaces our old shell.
+But what happens it that we put the flag where we want it, unset the FLAG environment variables and spawn a new shell which replaces our old shell, which calls the same `init.sh` file.
 By doing this, the FLAG environment is gone.
-If `exec sh` is not there, the flag can still be read from `/proc/1/environ`.
+If this is not there, the flag can still be read from `/proc/1/environ`.
 
 ## Naming of challenges (subject to change)
 All challenges should be prefixed with `chal-`, then a maximum of two tags e.g. `chal-web-sqli.`, followed by a delimiter `.` and then lowercase name as e.g. `chal-web-sqli.last-man-standing`.
